@@ -1,11 +1,9 @@
-# Very short description of the package
+# Payment
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/hamog/payment.svg?style=flat-square)](https://packagist.org/packages/hamog/payment)
 [![Total Downloads](https://img.shields.io/packagist/dt/hamog/payment.svg?style=flat-square)](https://packagist.org/packages/hamog/payment)
-![GitHub Actions](https://github.com/hamog/payment/actions/workflows/main.yml/badge.svg)
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
-
+Payment integration system in Laravel
 ## Installation
 
 You can install the package via composer:
