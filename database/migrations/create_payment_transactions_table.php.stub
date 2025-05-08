@@ -1,0 +1,34 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreatePaymentTransactionTable extends Migration
+{
+    public function up()
+    {
+        Schema::create('payment_transactions', function (Blueprint $table) {
+            $table->id();
+            $table->string('type'); // charge, refund, webhook, etc.
+            $table->string('gateway'); // stripe, paypal, etc.
+            $table->decimal('amount', 10, 2)->nullable();
+            $table->string('transaction_id')->nullable(); // Provider's transaction ID
+            $table->string('reference_id')->nullable(); // Internal reference (order ID, etc.)
+            $table->string('status')->nullable();
+            $table->json('metadata')->nullable(); // Additional data
+            $table->timestamps();
+
+            // Indexes
+            $table->index('transaction_id');
+            $table->index('reference_id');
+            $table->index(['gateway', 'type']);
+            $table->index('status');
+        });
+    }
+
+    public function down()
+    {
+        Schema::dropIfExists('payment_transactions');
+    }
+}
